@@ -1,0 +1,43 @@
+h2 #{date} Nieuwe bestelling
+
+br
+
+h4 Klant
+p #{user.firstName} #{user.surName}
+p #{user.phone}
+
+br
+
+h4 Bestelling
+table
+  tbody
+  each item in order
+    tr 
+      td #{item.count} x
+      td #{item.label}
+      td(style='text-align: right') #{item.price}
+  tr
+    td(colspan='3')
+      hr
+  tfoot
+    tr
+      td(colspan='2')
+        strong Totaal
+      td 
+        strong #{totalPrice}
+
+br
+
+h4 Adres
+p #{user.address}
+p #{user.postalCode} #{user.city}
+
+br
+
+h4 Bezorgtijd
+p #{user.deliveryTime}
+
+br
+
+h4 Opmerkingen
+p #{user.comments}
