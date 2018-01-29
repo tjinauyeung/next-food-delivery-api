@@ -5,20 +5,19 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
+    "format": "prettier --single-quote es5 --write './api/**/*.js'",
     "start": "nodemon index.js"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
     "body-parser": "^1.18.2",
+    "dotenv": "^4.0.0",
     "email-templates": "^3.3.3",
     "express": "^4.16.1",
     "lodash": "^4.17.4",
-    "luxon": "^0.3.1",
-    "mailgun.js": "^2.0.1",
-    "mongoose": "^4.12.0",
-    "nodemailer": "^4.4.1",
-    "nodemon": "^1.12.1",
+    "nodemon": "^1.14.11",
+    "prettier": "^1.10.2",
     "pug": "^2.0.0-rc.4"
   }
 }
