@@ -20,7 +20,7 @@ const email = new Email({
   transport: nodemailer.createTransport(NODEMAILER_SETTINGS)
 });
 
-function getLocals({user, order, totalPrice}) {
+function getLocals({ user, order, totalPrice }) {
   return {
     user,
     order: order.map(item => ({
@@ -42,12 +42,12 @@ function mailHandler(req, res, next) {
     email.send({
       template: 'order',
       message: { to: EMAIL_SELF },
-      locals: getLocals({user, order, totalPrice})
+      locals: getLocals({ user, order, totalPrice })
     }),
     email.send({
       template: 'confirm',
       message: { to: user.email },
-      locals: getLocals({user, order, totalPrice})
+      locals: getLocals({ user, order, totalPrice })
     })
   ])
     .then(() => res.status(200).send({ message: 'Email has been sent.' }))
