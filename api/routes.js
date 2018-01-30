@@ -1,7 +1,7 @@
 const express = require('express');
-const sendMail = require('./mailer');
+const mailHandler = require('./mailHandler');
 const router = express.Router();
 
-router.post('/mail', sendMail);
+router.post('/mail', mailHandler);
 
 module.exports = router;

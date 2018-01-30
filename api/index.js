@@ -23,5 +23,12 @@ module.exports = () => {
 
   api.use('/', routes);
 
+  api.use((err, req, res, next) => {
+    res.status(500);
+    res.json({
+      message: err.message
+    });
+  });
+
   console.log(`Server started on ${port}`);
 };

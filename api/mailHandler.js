@@ -32,7 +32,7 @@ function getLocals({user, order, totalPrice}) {
   };
 }
 
-function sendMail(req, res) {
+function mailHandler(req, res, next) {
   const { user, order, totalPrice } = req.body;
 
   if (!user) throw new Error('No user has been specified.');
@@ -51,7 +51,7 @@ function sendMail(req, res) {
     })
   ])
     .then(() => res.status(200).send({ message: 'Email has been sent.' }))
-    .catch(error => res.status(404).send(error));
+    .catch(next);
 }
 
-module.exports = sendMail;
+module.exports = mailHandler;
