@@ -20,7 +20,7 @@ const email = new Email({
   transport: nodemailer.createTransport(NODEMAILER_SETTINGS)
 });
 
-function getLocals({ user, order, totalPrice }) {
+function getLocals ({ user, order, totalPrice }) {
   return {
     user,
     order: order.map(item => ({
@@ -32,7 +32,7 @@ function getLocals({ user, order, totalPrice }) {
   };
 }
 
-function mailHandler(req, res, next) {
+function mailHandler (req, res, next) {
   const { user, order, totalPrice } = req.body;
 
   if (!user) throw new Error('No user has been specified.');
