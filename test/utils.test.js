@@ -1,6 +1,6 @@
 const test = require('ava');
 const Chance = new require('chance')();
-const { renderPrice } = require('../api/utils');
+const { renderPrice } = require('../lib/utils');
 
 test('converts the price by into a string', t => {
   const price = Chance.integer();

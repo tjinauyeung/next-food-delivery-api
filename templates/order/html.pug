@@ -1,12 +1,4 @@
-h2 #{date} Nieuwe bestelling
-
-br
-
-h4 Klant
-p #{user.firstName} #{user.surName}
-p #{user.phone}
-
-br
+h2 #{date}
 
 h4 Bestelling
 table
@@ -28,16 +20,20 @@ table
 
 br
 
-h4 Adres
+h4 Klant
+p #{user.firstName} #{user.surName}
+p #{user.phone}
 p #{user.address}
 p #{user.postalCode} #{user.city}
 
 br
 
-h4 Bezorgtijd
-p #{user.deliveryTime}
+if user.deliveryTime
+  h4 Bezorgtijd
+  p #{user.deliveryTime}
 
-br
+  br
 
-h4 Opmerkingen
-p #{user.comments}
+if user.comments
+  h4 Opmerkingen
+  p #{user.comments}
