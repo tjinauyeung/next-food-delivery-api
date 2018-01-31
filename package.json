@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "ava --tap-nyan",
+    "test:watch": "ava --watch --tap-nyan",
     "format": "prettier --single-quote es5 --write './api/**/*.js'",
     "dev": "nodemon index.js",
     "start": "nodemon index.js"
@@ -20,5 +21,9 @@
     "nodemon": "^1.14.11",
     "prettier": "^1.10.2",
     "pug": "^2.0.0-rc.4"
+  },
+  "devDependencies": {
+    "ava": "^0.25.0",
+    "chance": "^1.0.13"
   }
 }

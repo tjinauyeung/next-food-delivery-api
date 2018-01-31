@@ -14,7 +14,7 @@ const utils = {
     return `${rendered.slice(0, -2)}.${rendered.slice(-2)}`;
   },
 
-  // TODO: refactor
+  // TODO: refactor and add spec
   getToday() {
     let date = new Date();
     let days = date.getDate();
