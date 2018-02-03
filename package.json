@@ -15,6 +15,12 @@
   "engines": {
     "node": "9.x.x"
   },
+  "now": {
+    "env": {
+      "EMAIL_SELF": "@email-self",
+      "EMAIL_PASSWORD": "@email-password"
+    }
+  },
   "author": "",
   "license": "ISC",
   "dependencies": {
