@@ -14,10 +14,15 @@ table
     td(colspan='3')
       hr
   tfoot
+    if deliveryCost
+      tr
+        td(colspan='2') bezorgkosten
+        td(style='text-align: right')
+          strong #{deliveryCost}
     tr
       td(colspan='2')
         strong Totaal
-      td 
+      td(style='text-align: right')
         strong #{price}
 
 br

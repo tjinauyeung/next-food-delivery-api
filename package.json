@@ -6,10 +6,10 @@
   "scripts": {
     "test": "ava --tap-nyan",
     "test:watch": "ava --watch --tap-nyan ",
-    "format": "prettier --single-quote es5 --write './api/**/*.js'",
+    "format": "prettier --single-quote es5 --write './lib/**/*.js'",
     "dev": "nodemon index.js",
     "start": "node index.js",
-    "lint": "eslint './api/**/*.js'",
+    "lint": "eslint './lib/**/*.js'",
     "deploy": "now --public"
   },
   "engines": {
