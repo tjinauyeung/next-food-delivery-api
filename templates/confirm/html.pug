@@ -1,42 +1,40 @@
+head
+  link(rel="stylesheet", href="/css/style.css", data-inline)
+
 h2 Bedankt voor je bestelling, #{user.firstName}!
 
-br
+section
+  h4 Bestelling
+  table
+    tbody
+      each item in order
+        tr 
+          td #{item.count} x
+          td #{item.label}
+          td(style='text-align: right') #{item.price}
 
-h4 Bestelling
-table
-  tbody
-  each item in order
-    tr 
-      td #{item.count} x
-      td #{item.label}
-      td(style='text-align: right') #{item.price}
-  tr
-    td(colspan='3')
-      hr
-  tfoot
-    if deliveryCost
+      if deliveryCost
+        tr
+          td(colspan='2') bezorgkosten
+          td(style='text-align: right')
+            strong #{deliveryCost}
+
       tr
-        td(colspan='2') bezorgkosten
+        td(colspan='2')
+          strong Totaal
         td(style='text-align: right')
-          strong #{deliveryCost}
-    tr
-      td(colspan='2')
-        strong Totaal
-      td(style='text-align: right')
-        strong #{price}
+          strong #{price}
 
-br
+section
+  h4 Adres
+  p #{user.address}
+  p #{user.postalCode} #{user.city}
 
-h4 Adres
-p #{user.address}
-p #{user.postalCode} #{user.city}
+section
+  h4 Bezorgtijd
+  p #{user.deliveryTime}
 
-br
-
-h4 Bezorgtijd
-p #{user.deliveryTime}
-
-br
-
-h4 Opmerkingen
-p #{user.comments}
+section
+  if user.comments
+    h4 Opmerkingen
+    p #{user.comments}

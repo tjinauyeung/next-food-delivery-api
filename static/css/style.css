@@ -1,0 +1,20 @@
+h2 {
+  font-size: 18px;
+}
+
+h4 {
+  font-size: 14px;
+}
+
+section {
+  margin-top: 40px;
+}
+
+td {
+  padding: 10px 20px 10px 0;
+}
+
+.type {
+  text-transform: capitalize;
+  font-weight: bold;
+}
