@@ -11,13 +11,12 @@ section
         tr 
           td #{item.count} x
           td #{item.label}
-          td(style='text-align: right') #{item.price}
+          td(style='text-align: right') #{item.total}
 
       if deliveryCost
         tr
           td(colspan='2') bezorgkosten
-          td(style='text-align: right')
-            strong #{deliveryCost}
+          td(style='text-align: right') #{deliveryCost}
 
       tr
         td(colspan='2')
