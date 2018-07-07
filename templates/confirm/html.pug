@@ -30,7 +30,11 @@ section
   p #{user.postalCode} #{user.city}
 
 section
-  h4 Bezorgtijd
+  h4 Bezorgen / Ophalen
+  p(style='text-transform: uppercase') #{user.orderMethod}
+
+section
+  h4 Tijd
   p #{user.deliveryTime}
 
 section
