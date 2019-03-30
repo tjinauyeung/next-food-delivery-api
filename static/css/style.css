@@ -10,8 +10,18 @@ section {
   margin-top: 40px;
 }
 
+table {
+  border-collapse: collapse;
+}
+
+table,
+th,
 td {
-  padding: 10px 20px 10px 0;
+  border: 1px solid black;
+}
+
+td {
+  padding: 5px 20px;
 }
 
 .type {

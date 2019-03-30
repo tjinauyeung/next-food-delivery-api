@@ -1,18 +1,18 @@
-const nodemailer = require('nodemailer');
-const Email = require('email-templates');
-const path = require('path');
+const nodemailer = require("nodemailer");
+const Email = require("email-templates");
+const path = require("path");
 
-const mailFactory = {
+const EmailFactory = {
   create() {
     return new Email({
-      message: { 
-        from: process.env.EMAIL_SELF 
+      message: {
+        from: process.env.EMAIL_SELF
       },
-      views: { 
-        root: 'templates' 
+      views: {
+        root: "templates"
       },
       transport: nodemailer.createTransport({
-        service: 'gmail',
+        service: "gmail",
         auth: {
           user: process.env.EMAIL_SELF,
           pass: process.env.EMAIL_PASSWORD
@@ -30,7 +30,7 @@ const mailFactory = {
           // `<link rel="stylesheet" style="style.css" data-inline" />`
           // then this assumes that the file `build/style.css` exists
           //
-          relativeTo: path.resolve('static')
+          relativeTo: path.resolve("static")
           //
           // but you might want to change it to something like:
           // relativeTo: path.join(__dirname, '..', 'assets')
@@ -42,4 +42,4 @@ const mailFactory = {
   }
 };
 
-module.exports = mailFactory;
+module.exports = EmailFactory;

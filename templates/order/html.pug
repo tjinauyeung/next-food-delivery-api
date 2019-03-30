@@ -2,7 +2,6 @@ head
   link(rel="stylesheet", href="/css/style.css", data-inline)
 
 h2 #{date}
-h3 nummer: #{id}
 
 section
   h4 Bestelling
@@ -17,8 +16,10 @@ section
 
       if deliveryCost
         tr
-          td(colspan='3') bezorgkosten
-          td(style='text-align: right') #{deliveryCost}
+          td(colspan='3')
+            strong Bezorgkosten
+          td(style='text-align: right')
+            strong #{deliveryCost}
 
       tr
         td(colspan='3')
@@ -28,6 +29,7 @@ section
 
 section
   h4 Klant
+  p #{user.firstName} #{user.lastName}
   p #{user.email}
   p #{user.phone}
   p #{user.address}
