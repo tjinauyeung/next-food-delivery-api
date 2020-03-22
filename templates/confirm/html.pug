@@ -13,10 +13,19 @@ section
           td #{item.label}
           td(style='text-align: right') #{item.total}
 
+      if discount
+        tr
+          td(colspan='2')
+            strong Korting
+          td(style='text-align: right')
+            strong #{discount}
+
       if deliveryCost
         tr
-          td(colspan='2') bezorgkosten
-          td(style='text-align: right') #{deliveryCost}
+          td(colspan='2')
+            strong Bezorgkosten
+          td(style='text-align: right')
+            strong #{deliveryCost}
 
       tr
         td(colspan='2')

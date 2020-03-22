@@ -36,6 +36,7 @@ function getTemplateVars({ user, order, totals }) {
     id: _.uniqueId(),
     order: sortOrderOnType(renderPriceForOrder(order)),
     price: renderPrice(totals.price),
+    discount: renderPrice(totals.discount),
     deliveryCost: includeDeliveryCost(isForPickup, totals),
     date: getToday(new Date())
   };

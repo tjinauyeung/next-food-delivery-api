@@ -25,7 +25,7 @@ const MONTHS = [
 
 const utils = {
   renderPrice(price) {
-    const rendered = price.toString();
+    const rendered = price.toFixed().toString();
     return `${rendered.slice(0, -2)}.${rendered.slice(-2)}`;
   },
 

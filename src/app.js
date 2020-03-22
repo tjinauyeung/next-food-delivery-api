@@ -20,14 +20,18 @@ app.use((req, res, next) => {
   next();
 });
 
-app.post("/order", (req, res, next) => {
+app.post("/mail", (req, res, next) => {
   if (!req.body.user || !req.body.order) {
     res.status(404).send("user and order are required");
     return;
   }
 
+  console.log('sending')
+
   const Email = EmailFactory.create();
   const templateVars = TemplateUtils.getTemplateVars(req.body);
+
+  console.log({Email, templateVars})
 
   Promise.all([
     Email.send({
