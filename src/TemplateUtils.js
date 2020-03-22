@@ -2,7 +2,7 @@ const _ = require("lodash");
 const { renderPrice, getToday } = require("./utils");
 
 const MINIMUM_PRICE_FREE_DELIVERY = 5000;
-const DELIVERY_COSTS = 200;
+const DELIVERY_FEE = 200;
 
 function sortOrderOnType(order) {
   return _.sortBy(order, ["type", "label"]);
@@ -16,23 +16,27 @@ function renderPriceForOrder(order) {
   }));
 }
 
-function includeDeliveryCost(isForPickup, totalPrice) {
+function includeDeliveryCost(isForPickup, totals) {
+  const totalPrice = totals.price;
+  const minimumPriceFreeDelivery = totals.minimumPriceFreeDelivery || MINIMUM_PRICE_FREE_DELIVERY;
+  const deliveryFee = totals.deliveryFee || DELIVERY_FEE;
+
   return (
     !isForPickup &&
-    totalPrice < MINIMUM_PRICE_FREE_DELIVERY &&
-    renderPrice(DELIVERY_COSTS)
+    totalPrice < minimumPriceFreeDelivery &&
+    renderPrice(deliveryFee)
   );
 }
 
-function getTemplateVars({ user, order, totalPrice }) {
+function getTemplateVars({ user, order, totals }) {
   const isForPickup = user.orderMethod === "pickup"; // TODO refactor this;
 
   return {
     user,
     id: _.uniqueId(),
     order: sortOrderOnType(renderPriceForOrder(order)),
-    price: renderPrice(totalPrice),
-    deliveryCost: includeDeliveryCost(isForPickup, totalPrice),
+    price: renderPrice(totals.price),
+    deliveryCost: includeDeliveryCost(isForPickup, totals),
     date: getToday(new Date())
   };
 }
